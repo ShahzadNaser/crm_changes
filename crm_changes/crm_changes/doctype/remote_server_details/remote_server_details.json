@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-10-12 10:20:08.196583",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "hostname",
+  "db_user",
+  "column_break_3",
+  "database_name",
+  "password",
+  "section_break_6",
+  "server_file_path",
+  "ssh_hostname",
+  "ssh_username",
+  "ssh_password",
+  "column_break_8",
+  "current_server_file_path"
+ ],
+ "fields": [
+  {
+   "fieldname": "hostname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hostname",
+   "reqd": 1
+  },
+  {
+   "fieldname": "db_user",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "DB User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "database_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Database Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Password",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "server_file_path",
+   "fieldtype": "Data",
+   "label": "Remote Server File Path"
+  },
+  {
+   "fieldname": "ssh_hostname",
+   "fieldtype": "Data",
+   "label": "SSH Hostname"
+  },
+  {
+   "fieldname": "ssh_username",
+   "fieldtype": "Data",
+   "label": "SSH Username"
+  },
+  {
+   "fieldname": "ssh_password",
+   "fieldtype": "Data",
+   "label": "SSH Password"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_server_file_path",
+   "fieldtype": "Data",
+   "label": "Current Server File Path"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-10-12 10:20:08.196583",
+ "modified_by": "Administrator",
+ "module": "crm_changes",
+ "name": "Remote Server Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
