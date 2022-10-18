@@ -52,7 +52,7 @@ def get_data(filters):
 				billsec,
 				disposition,
 				uniqueid,
-				IF(disposition = 'ANSWERED',CONCAT("<button type='button' style='height: 26px;margin-top: -4px;padding: 4px;' class='btn btn-primary ellipsis' onClick='play_audio(",CONCAT('"',recordingfile,'"'),")'>Play Audio</button>"),'') as recordingfile ,
+				IF(disposition = 'ANSWERED',CONCAT("<button type='button' style='height: 26px;margin-top: -4px;padding: 4px;' class='btn btn-primary ellipsis' onClick='play_audio(",CONCAT('"',recordingfile,'"'),")'>Play Audio</button>"),'') as recordingfile
 			FROM
 				cdr
 			WHERE {0}
