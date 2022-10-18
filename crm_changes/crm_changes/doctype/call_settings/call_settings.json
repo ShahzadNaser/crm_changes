@@ -13,14 +13,13 @@
    "fieldname": "settings",
    "fieldtype": "Table",
    "label": "Settings",
-   "options": "Call Setting Details",
-   "reqd": 1
+   "options": "Call Setting Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-10-05 06:18:08.272122",
+ "modified": "2022-10-18 08:40:26.758725",
  "modified_by": "Administrator",
  "module": "crm_changes",
  "name": "Call Settings",
