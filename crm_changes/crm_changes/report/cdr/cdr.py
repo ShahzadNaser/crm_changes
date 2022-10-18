@@ -82,8 +82,17 @@ def get_condition(filters):
 		cond += " and DATE(calldate) = '{}'".format(filters.get("date"))
      
 	cs_default = frappe.get_single("Call Settings")
+	if cs_default.get("settings"):
+		cond += " and ("
+	first = True
 	for row in cs_default.get("settings"):
-		cond += " or ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
+		if not first:
+			cond += " or "
+		cond += " ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
+		first = False
+	if cs_default.get("settings"):
+		cond += ")"
+
 
 	return cond
 
