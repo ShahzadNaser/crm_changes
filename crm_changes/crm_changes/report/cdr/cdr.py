@@ -9,7 +9,7 @@ import pymysql.cursors
 def execute(filters=None):
 	columns = [
 		_("calldate") + "::140",
-		_("did") + "::120",
+		_("did") + "::140",
 		_("src") + "::120",
 		_("dst") + "::120",
 		_("channel") + "::120",
@@ -83,10 +83,7 @@ def get_condition(filters):
      
 	cs_default = frappe.get_single("Call Settings")
 	for row in cs_default.get("settings"):
-		cond += " and ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
-     
-	if filters.get("did"):
-		cond += " and (did like %{0}% )".format(filters.get("did"))
+		cond += " or ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
 
 	return cond
 

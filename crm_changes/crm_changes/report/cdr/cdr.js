@@ -10,12 +10,6 @@ frappe.query_reports["CDR"] = {
 			"fieldtype": "Date",
 			"reqd": 1,
 			"default": frappe.datetime.get_today()
-		},
-		{
-			"fieldname":"did",
-			"label": __("DID"),
-			"fieldtype": "Data",
-			"default": ""
 		}
 	],
 	after_datatable_render: function(datatable_obj) {
