@@ -8,7 +8,7 @@ import pymysql.cursors
 
 def execute(filters=None):
 	columns = [
-		_("calldate") + "::120",
+		_("calldate") + "::140",
 		_("did") + "::120",
 		_("src") + "::120",
 		_("dst") + "::120",
@@ -110,6 +110,8 @@ def get_file(file_name=""):
 	if not os.path.isfile(filepath):
 		try:
 			os.system('sshpass -p "{}" scp {}@{}:{} {}'.format(cn_settings.get("ssh_password"),cn_settings.get("ssh_username"),cn_settings.get("ssh_hostname"),cn_settings.get("server_file_path")+dyn_str+file_name,cn_settings.get("current_server_file_path")))
+			frappe.errprint('sshpass -p "{}" scp {}@{}:{} {}'.format(cn_settings.get("ssh_password"),cn_settings.get("ssh_username"),cn_settings.get("ssh_hostname"),cn_settings.get("server_file_path")+dyn_str+file_name,cn_settings.get("current_server_file_path")))
+			frappe.errprint("/files/{}".format(file_name))
 			filepath = "/files/{}".format(file_name)
 		except Exception as e:
 			frappe.log_error(str(e))
