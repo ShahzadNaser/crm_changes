@@ -4,6 +4,19 @@
 
 frappe.query_reports["CDR"] = {
 	"filters": [
+		{
+			"fieldname":"date",
+			"label": __("Date"),
+			"fieldtype": "Date",
+			"reqd": 1,
+			"default": frappe.datetime.get_today()
+		},
+		{
+			"fieldname":"did",
+			"label": __("DID"),
+			"fieldtype": "Data",
+			"default": ""
+		}
 	],
 	after_datatable_render: function(datatable_obj) {
 		$('.dt-cell').css("height","40px !important");
