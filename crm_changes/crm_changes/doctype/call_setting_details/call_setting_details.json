@@ -31,14 +31,14 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Condition",
-   "options": "=\nlike",
+   "options": "=\nlike\nbetween",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-10-18 07:20:52.177130",
+ "modified": "2022-10-19 23:14:14.215692",
  "modified_by": "Administrator",
  "module": "crm_changes",
  "name": "Call Setting Details",

@@ -12,9 +12,6 @@ def execute(filters=None):
 		_("did") + "::140",
 		_("src") + "::120",
 		_("dst") + "::120",
-		_("channel") + "::120",
-		_("dstchannel") + "::120",
-		_("lastdata") + "::120",
 		_("duration") + "::120",
 		_("billsec") + "::120",
 		_("disposition") + "::120",
@@ -28,7 +25,10 @@ def execute(filters=None):
 
 def get_data(filters):
 	try:
-		cn_settings = frappe.get_single("Remote Server Details")
+		rsd = frappe.db.sql("""SELECT * FROM tabSingles where doctype='Remote Server Details'""",as_dict=True)
+		cn_settings = frappe._dict()
+		for row in rsd:
+			cn_settings.setdefault(row.get("field"), row.get("value"))
 		if not cn_settings.get("hostname") or not cn_settings.get("db_user") or not cn_settings.get("hostname"):
 			frappe.throw("Remote Server Details credentials required")
 
@@ -45,9 +45,6 @@ def get_data(filters):
 				did,
 				src,
 				dst,
-				channel,
-				dstchannel,
-				lastdata,
 				duration,
 				billsec,
 				disposition,
@@ -80,17 +77,22 @@ def get_condition(filters):
 	
 	if filters.get("date"):
 		cond += " and DATE(calldate) = '{}'".format(filters.get("date"))
-     
-	cs_default = frappe.get_single("Call Settings")
-	if cs_default.get("settings"):
+	cs_default = frappe.db.sql("""SELECT `parameter`,`condition`,`value` FROM `tabCall Setting Details` where parent = 'Call Settings'""",as_dict=True)
+
+	if cs_default:
 		cond += " and ("
+
 	first = True
-	for row in cs_default.get("settings"):
+	for row in cs_default:
 		if not first:
 			cond += " or "
-		cond += " ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
+		if row.get("condition") == "between":
+			cond += " ({} {} {})".format(row.get("parameter"),row.get("condition"),row.get("value"))
+		else:
+			cond += " ({} {} '{}')".format(row.get("parameter"),row.get("condition"),row.get("value"))
 		first = False
-	if cs_default.get("settings"):
+
+	if cs_default:
 		cond += ")"
 
 
