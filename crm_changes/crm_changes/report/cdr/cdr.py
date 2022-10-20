@@ -113,7 +113,10 @@ def get_file(file_name=""):
 				dyn_str = "{}/{}/{}/".format("{:02d}".format(dt.year,),"{:02d}".format(dt.month,),"{:02d}".format(dt.day,))
 
 
-	cn_settings = frappe.get_single("Remote Server Details")
+	rsd = frappe.db.sql("""SELECT * FROM tabSingles where doctype='Remote Server Details'""",as_dict=True)
+	cn_settings = frappe._dict()
+	for row in rsd:
+		cn_settings.setdefault(row.get("field"), row.get("value"))
 	filepath = "{}{}".format(cn_settings.get("current_server_file_path"),file_name)
 	if not os.path.isfile(filepath):
 		try:

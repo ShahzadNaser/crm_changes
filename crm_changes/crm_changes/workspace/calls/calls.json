@@ -41,7 +41,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-10-11 21:34:34.164739",
+ "modified": "2022-10-20 07:00:52.830168",
  "modified_by": "Administrator",
  "module": "crm_changes",
  "name": "Calls",
@@ -54,6 +54,12 @@
    "label": "Call Settings",
    "link_to": "Call Settings",
    "type": "DocType"
+  },
+  {
+   "doc_view": "Report Builder",
+   "label": "CDR Report",
+   "link_to": "CDR",
+   "type": "Report"
   }
  ]
 }
