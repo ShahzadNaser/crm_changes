@@ -6,20 +6,37 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "settings"
+  "cdr_report_master_filter_section",
+  "settings",
+  "settings_for_campaign_section",
+  "campaign_setting"
  ],
  "fields": [
   {
    "fieldname": "settings",
    "fieldtype": "Table",
-   "label": "Settings",
    "options": "Call Setting Details"
+  },
+  {
+   "fieldname": "cdr_report_master_filter_section",
+   "fieldtype": "Section Break",
+   "label": "CDR report master filter"
+  },
+  {
+   "fieldname": "settings_for_campaign_section",
+   "fieldtype": "Section Break",
+   "label": "SETTINGS FOR CAMPAIGN"
+  },
+  {
+   "fieldname": "campaign_setting",
+   "fieldtype": "Table",
+   "options": "Master Settings"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-10-18 08:40:26.758725",
+ "modified": "2023-01-23 21:06:19.765553",
  "modified_by": "Administrator",
  "module": "crm_changes",
  "name": "Call Settings",
